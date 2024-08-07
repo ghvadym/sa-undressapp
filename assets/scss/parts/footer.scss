@@ -1,0 +1,231 @@
+[id=footer] {
+    margin-bottom: 100px;
+
+    @include response-max($laptop-landscape) {
+        margin: 0 0 32px;
+    }
+
+    * {
+        color: $color-font;
+    }
+
+    .menu {
+        li {
+            &:not(:last-child) {
+                margin-bottom: 8px;
+
+                @include response-max($laptop-landscape) {
+                    margin-bottom: 36px;
+                }
+            }
+        }
+    }
+}
+
+.footer__col {
+    .menu {
+        li {
+            a {
+                font-size: 18px;
+                font-weight: 400;
+                line-height: 1.4;
+
+                @include response-max($laptop-landscape) {
+                    font-size: 23px;
+                }
+            }
+        }
+    }
+
+    @include response-min($desktop) {
+        width: 25%;
+    }
+
+    @include response-max($laptop-landscape) {
+        text-align: center;
+    }
+}
+
+.footer__menu {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    @include response-max($laptop-landscape) {
+        flex-direction: column;
+        align-items: center;
+
+        .footer__col {
+            margin-bottom: 0 !important;
+        }
+    }
+}
+
+.footer__row {
+    width: 100%;
+    column-gap: 32px;
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+        a {
+            color: $color-main;
+
+            @include response-min($desktop) {
+                &:hover {
+                    color: $color-main-hover !important;
+                }
+            }
+        }
+    }
+
+    .footer__col {
+        @include response-min($desktop) {
+            &:first-child {
+                width: 50%;
+            }
+
+            &:not(:first-child) {
+                width: calc(50% / 3 - 64px);
+            }
+        }
+    }
+
+    @include response-min($desktop) {
+        align-items: flex-end;
+    }
+
+    @include response-min($desktop) {
+        &:not(:last-of-type) {
+            border-bottom: 1px solid rgba(86, 76, 76, 0.5);
+            padding-bottom: 32px;
+            margin-bottom: 32px;
+        }
+    }
+
+    @include response-min($laptop-landscape - 1) {
+        justify-content: space-between;
+    }
+
+    @include response-max($laptop-landscape) {
+        flex-direction: column;
+        align-items: center;
+
+        .menu {
+            margin-bottom: 12px;
+        }
+
+        .footer__col {
+            &:not(:last-child) {
+                margin-bottom: 32px;
+            }
+        }
+    }
+}
+
+.footer__logo {
+    margin-bottom: 55px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    @include response-max($laptop-landscape) {
+        justify-content: center;
+        margin-bottom: 16px;
+
+        .logo__title {
+            font-size: 20px;
+        }
+    }
+}
+
+.logo__title {
+    color: $color-main;
+}
+
+.footer__text {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+
+    @include response-max($laptop-landscape) {
+        font-size: 16px;
+        max-width: 80%;
+        margin: 0 auto;
+
+        br {
+            display: none;
+        }
+    }
+}
+
+.socials {
+    display: flex;
+    gap: 24px;
+
+    @include response-min($laptop-landscape - 1) {
+        justify-content: flex-end;
+    }
+
+    @include response-max($laptop-landscape) {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 32px;
+    }
+}
+
+.socials__title {
+    margin-bottom: 16px;
+
+    @include response-min($desktop) {
+        text-align: right;
+    }
+}
+
+.social__item {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    z-index: 2;
+    transition: $transition;
+
+    @include pointer;
+
+    a {
+        height: 100%;
+    }
+
+    @include response-min($desktop) {
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+
+    @include response-max($laptop-landscape) {
+        width: 33px;
+        height: 33px;
+    }
+}
+
+.menu_load_more {
+    display: none;
+    font-size: 16px;
+    font-weight: 400;
+    color: $color-main;
+    text-decoration: underline;
+    transition: $transition;
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
+    @include pointer;
+
+    @include response-min($desktop) {
+        &:hover {
+            color: $color-main-hover;
+        }
+    }
+
+    @include response-max($laptop-landscape) {
+        display: none;
+    }
+}
