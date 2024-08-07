@@ -61,14 +61,14 @@
 .cta__subtitle {
     font-size: 22px;
     line-height: 1.6;
+    margin-bottom: 64px;
 
-    @include response-min($desktop) {
-        margin-bottom: 64px;
+    @include response-max($laptop-landscape) {
+        margin-bottom: 16px;
     }
 
     @include response-max($laptop-landscape - 1) {
         font-size: 19px;
-        margin-bottom: 0;
         text-align: center;
     }
 }
@@ -96,5 +96,21 @@
 
     @include response-max($mobile) {
         height: 70px;
+    }
+}
+
+.steps_list {
+    display: flex;
+    gap: 32px;
+
+    @include response-min($laptop-portrait) {
+        .article {
+            width: 100%;
+            max-width: calc(100% / 3);
+        }
+    }
+
+    @include response-max($mobile) {
+        flex-direction: column;
     }
 }

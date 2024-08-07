@@ -17,8 +17,8 @@ get_template_part_var('home/steps', [
 ]);
 
 get_template_part_var('global/faq', [
-    'faq_list' => $fields['faq'] ?? [],
-    'banner'   => $fields['bottom_adv_banner'] ?? []
+    'fields' => $fields,
+    'banner' => $fields['bottom_adv_banner'] ?? []
 ]);
 
 get_footer();

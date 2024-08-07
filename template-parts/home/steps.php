@@ -1,6 +1,6 @@
 <?php
 
-$steps = $fields['steps'] ?? [];
+$steps = $fields['steps_list'] ?? [];
 
 if (empty($steps)) {
     return;   
@@ -14,12 +14,33 @@ if (empty($steps)) {
                 <?php echo $fields['steps_title']; ?>
             </h2>
         <?php } ?>
-        <div class="articles">
-            <?php foreach ($steps as $post) {
-                get_template_part_var('cards/card-post', [
-                    'post' => $post
-                ]);
-            } ?>
+        <div class="steps_list">
+            <?php foreach ($steps as $step) {
+                $img = !empty($step['img']) ? wp_get_attachment_image($step['img'], 'full') : '';
+                ?>
+                <div class="article">
+                    <div class="article__body">
+                        <?php if ($img) { ?>
+                            <div class="article__img">
+                                <?php echo $img; ?>
+                            </div>
+                        <?php } ?>
+                        <div class="article__content">
+                            <?php _get_field($step['title'] ?? '', 'article__title', 'h3'); ?>
+                            <?php if (!empty($step['text'])) { ?>
+                                <div class="article__text">
+                                    <?php echo $step['text']; ?>
+                                </div>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            <?php }?>
         </div>
+        <?php if (!empty($fields['steps_btn'])) { ?>
+                <div class="articles__btn">
+                <?php echo link_html($fields['steps_btn'], 'btn') ?>
+            </div>
+        <?php } ?>
     </div>
 </section>

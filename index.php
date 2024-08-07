@@ -1,24 +1,20 @@
 <?php
-
 get_header();
+$post = get_post();
 ?>
 
-<?php if (have_posts()): ?>
-
-    <section class="section">
-        <div class="container">
-            <div class="row">
-                <?php while (have_posts()): the_post(); ?>
-                    <div class="col-12">
-                        <?php the_content(); ?>
-                    </div>
-                <?php endwhile; ?>
-            </div>
+    <section class="page">
+        <div class="container-sm">
+            <h1>
+                <?php echo esc_html($post->post_title); ?>
+            </h1>
+            <?php if ($post->post_content) { ?>
+                <div class="text_block">
+                    <?php the_content(); ?>
+                </div>
+            <?php } ?>
         </div>
     </section>
 
 <?php
-wp_reset_postdata();
-endif;
-
 get_footer();

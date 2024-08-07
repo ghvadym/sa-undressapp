@@ -52,7 +52,7 @@
     margin-bottom: 12px;
     text-align: center;
 
-    a  {
+    &, & > a {
         color: $color-main;
         font-size: 24px;
         font-weight: 400;
@@ -87,10 +87,11 @@
 }
 
 .article__text {
-    font-size: 16px;
-    font-weight: 300;
+    font-size: 18px;
+    font-weight: 400;
     line-height: 1.4;
     color: $color-font;
+    text-align: center;
     @include line-break(2);
 }
 

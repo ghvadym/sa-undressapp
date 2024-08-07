@@ -50,6 +50,7 @@
 @mixin text-block() {
     h1 {
         font-size: 56px;
+        color: $color-font;
 
         @include response-max($mobile) {
             font-size: 32px;

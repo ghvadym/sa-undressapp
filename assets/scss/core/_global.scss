@@ -134,6 +134,11 @@ img {
     img, .custom-logo-link {
         width: 53px;
         height: 55px;
+
+        @include response-max($laptop-landscape) {
+            width: 35px;
+            height: 35px;
+        }
     }
 
     img {
@@ -794,4 +799,82 @@ section {
     border-radius: 42px;
     border-width: 2px;
     width: auto;
+}
+
+.upload_img__progress {
+    display: none;
+}
+
+.progress__body {
+    background: #d2d2d2;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 20px;
+    position: relative;
+}
+
+.progress__val {
+    font-size: 14px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-weight: 500;
+}
+
+.progress__track {
+    height: 100%;
+    background: blue;
+    transition: 0.5s ease-in-out;
+}
+
+.upload_img__form {
+    display: none;
+}
+
+section.upload {
+    .upload_img:not(.active) {
+        height: 200px;
+        background: rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px dotted rgba(0, 0, 0, 0.3);
+        border-radius: 12px;
+        transition: $transition;
+
+        @include response-min($mobile) {
+            &:hover {
+                background: rgba(0, 0, 0, 0.2);
+            }
+        }
+    }
+}
+
+.upload_img__btn {
+    font-weight: 600;
+
+    svg {
+        width: 30px;
+        height: 30px;
+        filter: brightness(0) invert(1);
+        transition: $transition;
+        margin-right: 10px;
+    }
+
+    @include response-min($desktop) {
+        &:hover {
+            svg {
+                filter: unset;
+            }
+        }
+    }
+}
+
+.progress__title {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 18px;
 }
